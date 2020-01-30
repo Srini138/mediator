@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    {% block head %}
+    <!-- <link rel="stylesheet" href="\static\style.css"> -->
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+    <style>
+        footer{
+            color:white;
+            font-size: 18px;
+            position: fixed;
+            font-family: monospace;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height:40px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body background="/static/background.jpg">
+    <div class="fluid-container">
+      <div class="jumbotron">
+        <h1>Translator</h1>
+        <h5>Translate text from one language to another. </h5>
+      </div>
+      <div id="content">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
+    <footer >
+        <div align="left">
+            For Mini Project puropses only&copy; Developed by ETE Students
+        </div>
+        <div align="right" id="right">
+            {% block right %}{% endblock %}
+        </div>
+    </footer>
+</body>
+</html>

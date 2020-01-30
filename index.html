@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Translator{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+    .try{
+      background-color: rgba(48,48,48,0.7);
+      border: 2px solid rgb(80,80,80);
+      width: 400px;
+      height: 450px;
+      padding: 20px;
+      text-align: center;
+  	}
+  	.a{
+      margin: auto;
+      padding: 10px;
+      margin-top: 20px;
+      margin-left: 20px;
+      background: rgba(44,62,80,0.7);
+      border: none;
+  	}
+  	select{
+      background: transparent;
+      border:none;
+      font-size: 22px;
+      text-align: center;
+      width: 300px;
+  	}
+  	::placeholder{
+      color: white;
+  	}
+  	textarea{
+      background: transparent;
+      border:none;
+      font-size: 22px;
+      color: white;
+      text-align: left;
+  	}
+  	#select{
+      color:white;
+  	}
+  	#select option{
+      color:black;
+  	}
+  	.jumbotron{
+  		height: 180px;
+  	}
+  </style>
+{% endblock %}
+{% block content %}
+      <form action="/" method="POST">
+        <div class="container">
+          <center>
+            <div class="try">
+              
+              <div class="a">
+                <select class="sel" name="sorc" id="select" required>
+                  <option value="" disabled selected hidden>Enter Source language</option>
+                  {% for i in languages %}
+                    <option value={{i}} name={{i}} id="src">{{i}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="a">
+                <select class="sel" name="dest" id="select" required>
+                  <option value="" disabled selected hidden>Enter Destination language</option>
+                  {% for i in languages %}
+                    <option value={{i}} name={{i}} id="dest">{{i}}</option>
+                  {% endfor %}  
+                </select>
+              </div>
+
+              <div class="a">
+                <textarea name="text" rows="4" cols="27" placeholder="Enter text to be translated" onfocus="noplaceholder()" onfocusout="setplaceholder()" id="area" required id="text"></textarea>
+              </div>
+
+              <div class="a">
+                <button type="submit" name="button" class="btn btn-dark">Submit</button>
+              </div>
+
+            </div>  
+          </center>
+        </div>
+      </form>
+
+    <script type="text/javascript">
+      function noplaceholder(){
+        document.getElementById('area').placeholder=' ';
+      }
+      function setplaceholder(){
+        document.getElementById('area').placeholder="Enter text to be translated";
+      }
+    </script>
+{% endblock %}
